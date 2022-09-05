@@ -177,8 +177,34 @@ header .nav-links li:last-child {
   font-size: 1.25rem;
   font-weight: 300;
   color: var(--primary);
-  margin: 0;
+  margin:  2px;
 }
+.result-card .info .actors {
+  font-size: 1.15rem;
+  font-weight: 200;
+  color: var(--primary);
+  margin:  2px;
+}
+.result-card .info .director {
+  font-size: 1.12rem;
+  font-weight: 200;
+  color: var(--primary);
+  margin: 2px;
+}
+.result-card .info .description {
+  font-size: 1.12rem;
+  font-weight: 200;
+  color: var(--primary);
+  margin: 2px;
+  padding: 0;
+}
+.result-card .info .category {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin:  2px;
+}
+
 
 .result-card .controls button {
   margin-right: 10px;
