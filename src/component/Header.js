@@ -7,11 +7,12 @@ const Header = () => {
        <div className='container'>
            <div className='inner-content'>
                <div className='brand'>
-                   <Link to="/">Favourite</Link>
+               <Link to="/" >Movies</Link>
                </div>
                <ul className='nav-links'>
                    <li>
-                       <Link to="/add" className='btn'>Add Movie</Link>
+                     
+                       <Link to="/add">Favourite</Link>
                    </li>
                </ul>
            </div>

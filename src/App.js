@@ -13,12 +13,11 @@ function App() {
 <Header/>
 <Switch>
   <Route exact path='/'>
-    <Favorites/>
+    <AddMovie/>
     
   </Route>
   <Route exact path='/add'>
-    <AddMovie/>
-    
+  <Favorites/>  
   </Route>
 </Switch>
    </Router>

@@ -3,6 +3,9 @@ import Movie from './Movie';
 
 const AddMovie = () => {
     const[query,setquery]=useState("");
+   
+
+   
   return (
     <div className='add-page'> 
       <div className='container'>
@@ -10,7 +13,7 @@ const AddMovie = () => {
               <div className='input-wrapper'>
                   <input type='text' placeholder='search' value={query} onChange={(e)=>setquery(e.target.value)}/>
               </div>
-             <Movie/>
+             <Movie  />
           </div>
       </div>
     </div>
