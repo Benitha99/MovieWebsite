@@ -1,44 +1,59 @@
-import React,{useState} from 'react'
-const getLocalItems=()=>{
-  let list=localStorage.getItem('lists');
-  console.log(list);
-  if(list){
-      return JSON.parse(localStorage.getItem('lists'))
-  }else{
-      return [];
-  }
-}
+import React, { useState } from "react";
 
+const getLocalItems = () => {
+  let list = localStorage.getItem("lists");
+  console.log(list);
+  if (list) {
+    return JSON.parse(localStorage.getItem("lists"));
+  } else {
+    return [];
+  }
+};
 
 const Favorites = () => {
+  const [fav, setFav] = useState(getLocalItems());
 
-  const[fav,setFav]=useState(getLocalItems());
+  const deleteItem = (index) => () =>
+    setFav((fav) => fav.filter((_, i) => i !== index));
 
-  const deleteItem=(i)=>{
+  // console.log(index)
 
- 
-    setFav(fav.filter((elem,id)=>id!==i))
-   
-   }
-  
+  // const filterd=fav.filter((el)=>{
+  //   return el.id!==index
+  // });
+  // setFav(filterd)
+
+  const removeAll = () => {
+    setFav([]);
+    localStorage.removeItem("lists");
+  };
+
   return (
-    <>
- <h1>Favorites</h1>
+    <div className="container">
+      <h1>Favorites</h1>
 
-{
-       fav.map((ele,id)=>{
-            return(
-            <div className='eachItem' key={id}>
-            <h3>{ele}</h3>
-            <i className="far fa-trash-alt" title="Delete item" onClick={()=>deleteItem(id)}></i>
-        </div>
+      <div class="row g-2">
+        {fav.map((ele, index) => {
+          return (
+            <div class="col-md-3" key={ele.id}>
+              <div class="card" >
+                <img src={ele.posterUrl} class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{ele.title}</h5>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        {/* <button onClick={removeAll}>
+          <span>Remove All</span>
+        </button> */}
+        <button type="button" class="btn btn-danger" onClick={removeAll}>Remove All</button>
+      </div>
+    </div>
+  );
+};
 
-         ) })
-    }
-
-     
-    </>
-  )
-}
-
-export default Favorites
+export default Favorites;
