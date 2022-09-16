@@ -1,10 +1,13 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import "./App.css";
-import "./lib/font-awesome/css/all.min.css";
 import Header from "./component/Header";
 import Favorites from "./component/Favorites";
 import SingleMovie from './component/SingleMovie';
 import Movie from './component/Movie';
+import Action from './component/Action';
+import Romantic from './component/Romantic';
+import Comedy from './component/Comedy';
+import Anime from './component/Anime';
 
 function App() {
   return( <BrowserRouter>
@@ -15,6 +18,10 @@ function App() {
 
  <Route path='/favorite' element={<Favorites/>}/>
  <Route path='Movie/:movieId' element={<SingleMovie/>}/>
+ <Route path='/Action' element={<Action/>}/>
+ <Route path='/Romantic' element={<Romantic/>}/>
+ <Route path='/Comedy' element={<Comedy/>}/>
+ <Route path='/Anime' element={<Anime/>}/>
    
  </Route>
 

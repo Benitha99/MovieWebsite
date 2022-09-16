@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import movies from "../movies.json";
 
-const getLocalItems = () => {
-  let list = localStorage.getItem("lists");
-  console.log(list);
-  if (list) {
-    return JSON.parse(localStorage.getItem("lists"));
-  } else {
-    return [];
-  }
-};
 
 const Movie = () => {
-  const [fav, setFav] = useState(getLocalItems());
-  const addItems = (movie) => {
-    setFav([...fav, movie]);
-    console.log(fav);
-  };
-  useEffect(() => {
-    localStorage.setItem("lists", JSON.stringify(fav));
-  }, [fav]);
+ 
+
+  const defaultImage = "/image/20181224_141612.jpg"
 
   return (
     <div className="container-fluid">
@@ -31,12 +17,12 @@ const Movie = () => {
               <div class="card-h-20 " key={movie.id}>
                 <article key={movie.id}>
                   <Link to={`/Movie/${movie.id}`}>
-                    {" "}
+                    
                     <img
                       src={movie.posterUrl}
                       class="card-img-top"
                       alt={movie.title}
-                    />{" "}
+                    />
                   </Link>
                 </article>
 
@@ -44,9 +30,7 @@ const Movie = () => {
                   <h5 class="card-title">{movie.title}</h5>
                 </div>
 
-                <button className="btn" onClick={() => addItems(movie)}>
-                  Add to favorite
-                </button>
+               
               </div>
             </div>
           );

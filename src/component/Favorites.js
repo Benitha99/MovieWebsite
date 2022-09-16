@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GoTrashcan} from "react-icons/go";
 
 const getLocalItems = () => {
   let list = localStorage.getItem("lists");
@@ -13,15 +14,12 @@ const getLocalItems = () => {
 const Favorites = () => {
   const [fav, setFav] = useState(getLocalItems());
 
-  const deleteItem = (index) => () =>
-    setFav((fav) => fav.filter((_, i) => i !== index));
-
-  // console.log(index)
-
-  // const filterd=fav.filter((el)=>{
-  //   return el.id!==index
-  // });
-  // setFav(filterd)
+  const removeElementLocalStorage = (id) => {
+    let elements = getLocalItems();
+    elements = elements.filter(element => element.id !== id);
+    localStorage.setItem('lists', JSON.stringify(elements));
+};
+   
 
   const removeAll = () => {
     setFav([]);
@@ -40,6 +38,8 @@ const Favorites = () => {
                 <img src={ele.posterUrl} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">{ele.title}</h5>
+                  <GoTrashcan style={{color:'red'}} onClick={() =>removeElementLocalStorage(ele.id)}></GoTrashcan>
+                  
                 </div>
               </div>
             </div>
