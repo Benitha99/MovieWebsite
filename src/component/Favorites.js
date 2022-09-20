@@ -31,6 +31,7 @@ const Favorites = () => {
       <h1>Favorites</h1>
 
       <div class="row g-2">
+      <h4>Movies</h4>
         {fav.map((ele, index) => {
           return (
             <div class="col-md-3" key={ele.id}>

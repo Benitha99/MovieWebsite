@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import movies from "../movies.json";
 
 
-const Movie = () => {
+const Movie = (props) => {
  
 
-  const defaultImage = "/image/20181224_141612.jpg"
+const searches = localStorage.getItem("searches")
+
+console.log(searches)
 
   return (
     <div className="container-fluid">
       <div class="row g-3 ">
+      <h4>Movies</h4>
         {movies.map((movie) => {
           return (
             <div class="col-md-2">

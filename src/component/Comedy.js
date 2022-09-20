@@ -11,6 +11,7 @@ const Comedy = () => {
   return (
     <div className="container-fluid">
       <div class="row g-3 ">
+      <h4>Movies</h4>
         {result.map((movie) => {
           return (
             <div class="col-md-2">
